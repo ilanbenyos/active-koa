@@ -10,14 +10,14 @@ const mongoose = require('mongoose')
 
 mongoose.set('useCreateIndex', true);
 mongoose.Promise = global.Promise
-mongoose.connect(`mongodb://ilanben:xsw23edc@ds131721.mlab.com:31721/trippo`)
+mongoose.connect(`mongodb://ilanben:zaq12wsxZ!@ds231537.mlab.com:31537/active_trail`);
+// mongoose.connect(`mongodb://ilanben:xsw23edc@ds131721.mlab.com:31721/trippo`)
 
 
 app.use(cors({
     origin: '*',
     allowedHeaders: ['*'],
     allowMethods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-    // allow: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
     maxAge: 5,
     credentials: true,
@@ -25,7 +25,11 @@ app.use(cors({
 const router = new koaRouter()
 
 router.get('koala', '/testConnection', async (ctx) => {
-    ctx.body = 'ok'
+  ctx.status = 433;
+  ctx.body = {
+    message: 'popo was here!',
+    desc:'and I can\'t tell why...'
+  };
 })
 router.get('koala', '/fetch-words', async (ctx) => {
     ctx.body = await utils.fetchTweetsFromApi()

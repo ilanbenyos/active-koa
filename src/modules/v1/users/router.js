@@ -54,11 +54,10 @@ export default [
     ]
   },
   {
-    route: '/forgotPassword',
+    route: '/test',
     method: 'POST',
     handlers: [
-      getMe.getMeByUserName,
-      user.forgotPassword
+      user.test
     ]
   },
   {
